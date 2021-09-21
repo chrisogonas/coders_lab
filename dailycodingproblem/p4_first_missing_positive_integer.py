@@ -6,6 +6,9 @@ and negative numbers as well.
 For example, the input [3, 4, -1, 1] should give 2. The input [1, 2, 0] should give 3.
 
 You can modify the input array in-place.
+
+NOTE: This solution works in linear time, but not constant space, the latter being due to the additional dictionary
+that needs extra storage for its keys and values. Feel free to improve on that.
 """
 
 
