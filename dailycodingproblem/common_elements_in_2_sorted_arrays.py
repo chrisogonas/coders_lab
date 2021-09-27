@@ -23,6 +23,8 @@ def common_elements_in_2_sorted_arrays(arr1, arr2):
             j += 1
 
 
-abc = common_elements_in_2_sorted_arrays([1, 3, 4, 5, 9], [1, 2, 4, 6, 7, 8, 9])
-for item in abc:
-    print(item, end=', ')
+abc = common_elements_in_2_sorted_arrays([1, 3, 4, 5, 9], [1, 2, 3, 4, 6, 7, 8, 9])
+# for item in abc:
+#     print(item, end=', ')
+
+[print(item, end=', ') for item in abc]
