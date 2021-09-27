@@ -16,7 +16,7 @@ def common_elements_in_2_sorted_arrays(arr1, arr2):
 
         if i >= len(arr1) and j >= len(arr2):
             break
-
+        
         if arr1[i] < arr2[j]:
             i += 1
         elif arr1[i] > arr2[j]:
