@@ -10,13 +10,13 @@ def reverse_string(s):
         return ''
 
     new_str = ''
-    new_s = s.split(' ')
-    arr_len = len(new_s) - 1
+    # new_s = s.split(' ')
+    # arr_len = len(new_s) - 1
 
-    for item in new_s[::-1]:
-        new_str = f'{new_str} {item}'
+    for item in s[::-1]:
+        new_str = f'{new_str}{item}'
 
-    return new_str.strip()
+    return new_str
 
 
 my_str = reverse_string('The quick brown fox jumps over the lazy dog.')
