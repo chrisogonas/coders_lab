@@ -39,6 +39,7 @@ def minimumCostPath_recursion(matrix, total=0, i=0, j=0):
 
 
 # This approach works all the time, with a more efficient time, but double space usage due to the 2nd matrix
+# time complexity == space complexity == O(nm)
 def minimumCostPath(matrix):
     lm = len(matrix)
     wm = len(matrix[0])
