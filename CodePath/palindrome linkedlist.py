@@ -17,36 +17,39 @@ class ListNode(object):
 
 
 def isPalindrome(node):
-    fullLength = getLength(node)
+    length = get_length(node)
+    if length == 1:
+        return True
+    if length == 2:
+        if node.val == node.next.val:
+            return True
+        else:
+            return False
 
-    firstHalf = []
-    currentNode = 0
-    while currentNode < (fullLength / 2):
-        firstHalf.append(node.val)
+    first_half = []
+    current_node = 0
+    half = length // 2
+    while current_node < half:
+        first_half.append(node.val)
         node = node.next
-        currentNode += 1
+        current_node += 1
 
-    node = node.next
+    if length % 2 != 0:
+        node = node.next
 
-    while currentNode > 0:
-        if node.val != firstHalf[currentNode]:
+    while node:
+        val = first_half.pop()
+        if node.val != val:
             return False
         node = node.next
-        currentNode -= 1
 
-    if currentNode != 0:
-        return False
-
-    return True
+    return len(first_half) == 0 and node is None
 
 
-def getLength(node):
+def get_length(node):
     length = 0
-    while node != None:
+    while node:
         length += 1
-
-        if node.next == None:
-            return length
         node = node.next
     return length
 
@@ -57,27 +60,33 @@ def getLength(node):
 n1_1 = ListNode(val=1)
 print(f"Test 1 - isPalindrome returned: {isPalindrome(n1_1)}, expected: True")
 
-# # 1 -> 2
-# n2_1 = ListNode(val=1)
-# n2_2 = ListNode(val=2)
-# n2_1.next = n2_2
-# print(f"Test 2 - isPalindrome returned: {isPalindrome(n2_1)}, expected: False")
+# 1 -> 2
+n2_1 = ListNode(val=1)
+n2_2 = ListNode(val=2)
+n2_1.next = n2_2
+print(f"Test 2 - isPalindrome returned: {isPalindrome(n2_1)}, expected: False")
 
-# # 1 -> 2 -> 3
-# n3_1 = ListNode(1)
-# n3_2 = ListNode(2)
-# n3_3 = ListNode(3)
-# n3_1.next = n3_2
-# n3_2.next = n3_3
-# print(f"Test 3 - isPalindrome returned: {isPalindrome(n3_1)}, expected: False")
-#
-# # 1 -> 2 -> 1
-# n4_1 = ListNode(1)
-# n4_2 = ListNode(2)
-# n4_3 = ListNode(1)
-# n4_1.next = n4_2
-# n4_2.next = n4_3
-# print(f"Test 4 - isPalindrome returned: {isPalindrome(n4_1)}, expected: True")
+# 1 -> 2 -> 3
+n3_1 = ListNode(1)
+n3_2 = ListNode(2)
+n3_3 = ListNode(3)
+n3_1.next = n3_2
+n3_2.next = n3_3
+print(f"Test 3 - isPalindrome returned: {isPalindrome(n3_1)}, expected: False")
 
+# 1 -> 2 -> 1
+n4_1 = ListNode(1)
+n4_2 = ListNode(2)
+n4_3 = ListNode(1)
+n4_1.next = n4_2
+n4_2.next = n4_3
+print(f"Test 4 - isPalindrome returned: {isPalindrome(n4_1)}, expected: True")
 
-# isPalindrome(Tests.n4_1)
+# 1 -> 2 -> 1 -> 1
+n4 = ListNode(1)
+n4.next = ListNode(2)
+n4.next.next = ListNode(2)
+n4.next.next.next = ListNode(2)
+n4.next.next.next.next = ListNode(1)
+
+print(f"Test 4 - isPalindrome returned: {isPalindrome(n4)}, expected: True")
