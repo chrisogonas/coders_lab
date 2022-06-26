@@ -18,7 +18,7 @@ Output: 496
 # return type: int
 
 # This recursion approach is 'greedy', and does not work all the time; works with matrix example 1, but not 2
-def minimumCostPath_recursion(matrix, total=0, i=0, j=0):
+def minimum_cost_path_recursion(matrix, total=0, i=0, j=0):
     if j == i == 0:
         total = matrix[i][j]
     if i + 1 == len(matrix) and j + 1 == len(matrix[0]):
@@ -35,12 +35,12 @@ def minimumCostPath_recursion(matrix, total=0, i=0, j=0):
                 j += 1
 
         total += matrix[i][j]
-        return minimumCostPath_recursion(matrix, total, i, j)
+        return minimum_cost_path_recursion(matrix, total, i, j)
 
 
 # This approach works all the time, with a more efficient time, but double space usage due to the 2nd matrix
 # time complexity == space complexity == O(nm)
-def minimumCostPath(matrix):
+def minimum_cost_path(matrix):
     lm = len(matrix)
     wm = len(matrix[0])
 
@@ -64,9 +64,9 @@ def minimumCostPath(matrix):
     return costs[lm - 1][wm - 1]
 
 
-matrix = [[3, 12, 4, 7, 10], [6, 8, 15, 11, 4], [19, 5, 14, 32, 21], [1, 20, 2, 9, 7]]
-# matrix = [[96, 72, 52, 54, 86, 58, 21, 19, 99], [71, 96, 1, 43, 44, 98, 40, 26, 24]]
+# matrix = [[3, 12, 4, 7, 10], [6, 8, 15, 11, 4], [19, 5, 14, 32, 21], [1, 20, 2, 9, 7]]
+matrix = [[96, 72, 52, 54, 86, 58, 21, 19, 99], [71, 96, 1, 43, 44, 98, 40, 26, 24]]
 # tot = minimumCostPath_recursion(matrix)
-tot = minimumCostPath(matrix)
+tot = minimum_cost_path(matrix)
 
 print(tot)

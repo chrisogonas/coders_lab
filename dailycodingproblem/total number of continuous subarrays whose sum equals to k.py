@@ -9,7 +9,7 @@
 
 
 def GetContSubArrays(arr, target_sum):
-    current_sum = arr[0] # default to the first array element
+    current_sum = arr[0]  # default to the first array element
     count = 0
     left = right = 0
 
@@ -30,4 +30,4 @@ def GetContSubArrays(arr, target_sum):
     return count
 
 
-print(GetContSubArrays([1,2,2,2,3,3,4], 4))
+print(GetContSubArrays([1, 2, 2, 2, 3, 3, 4], 4))
